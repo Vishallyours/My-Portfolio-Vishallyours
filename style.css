@@ -1,0 +1,46 @@
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer components {
+      
+    .display-none{
+        display: none;
+        }
+    animate-cursorAnim { 
+          animation: cursorAnim 0.5s forwards ;
+          background:#06141b20 ;
+        }
+  
+    .underline-animation  {
+            @apply relative;
+        }
+    .underline-animation::after {
+        @apply absolute content-[''] w-full h-[1px] left-0 bottom-[-2px] bg-customPrimary dark:bg-customSecondary scale-x-0 hover:scale-x-100 origin-bottom-left
+        hover:origin-bottom-left transition-transform duration-300
+        }
+      }
+    
+      .cursorAnim {
+        background-color: #06141bb0;
+        border: #06141b20;
+      }
+      .dark .cursorAnim{
+        background-color: #ccd0cfc0;
+        border: #ccd0cfc0;
+      }
+   
+     .hidden-cursor{
+        display: none;
+    } 
+    
+    .cursor-scale-4x {
+      transform: translate(-50%, -50%) scale(2) !important;
+      background-color: #06141bb0;
+      border: #06141b20;
+    }
+    .dark .cursor-scale-4x {
+      background-color: #ccd0cfc0;
+      border: #ccd0cfc0;
+    }
+ 

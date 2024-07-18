@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./src/output.css" rel="stylesheet">
+        
+      
+      
+        <title>Vishallyours</title>
+    </head>
+    
+    <body class ="  h-dvh
+                    text-customPrimary bg-customSecondary
+                    dark:bg-customPrimary dark:text-customSecondary
+                    overflow-hidden
+                   ">
+     
+<nav class="flex justify-between ">
+                   <ul class="navlinks">
+                             <div class="flex m-20 mt-24">Home</div>   
+                   </ul> 
+                    
+
+                        <ul class="navlinks flex list-none m-20 mt-24 justify-end space-x-4">
+                            
+                            <li class="w-8 h-8 p-1" onclick="themeSwitchANDScale4x()">
+                                  <img class="moon cursor-pointer block dark:hidden "onclick="themeSwitchANDScale4x()" src="./material/moonIcon.svg" alt=""/>
+                                <img class="sun cursor-pointer hidden dark:block "onclick="themeSwitchANDScale4x()" src="./material/sunIcon.svg" alt=""/>
+                            </li>
+                        
+                             <li>
+                                <button>Menu</button>
+                            </li>
+                        </ul>
+</nav>
+        <div class="grid
+                    place-items-center
+                    flex-col
+                    justify-center
+                    justify-items-center
+                    text-5xl 
+                    font-sans  
+                    text-center
+                    space-y-4
+                    mt-16
+                    my-auto
+                    ">
+        
+                    <span class="flex space-x-2"> 
+                        <p>Hey, I'm</p>
+                        <p class="underline">Vishal Sain</p>
+                    </span>     
+                    <span class="flex space-x-2"> 
+                        <p>But you can call me</p> 
+                        <p class="underline">Vish</p>
+                    </span>
+        <div class="flex flex-col items-center text-lg space-y-4">
+                    <span class="flex">
+                        <p>I'm a front-end developer</p>
+                    </span>
+                    <span class="flex space-x-2">
+                        <button class="underline-animation">See my projects</span></button>
+                        <button class="underline-animation" onclick="openPDF()">Resume</button>
+                    </span>
+        </div>  
+    </div>
+            
+<footer>
+        <div class="flex justify-center
+                    mt-64   
+                    text-sm
+                    ">
+                <p>designed and coded by Vishal Sain &copy 2024</p>
+        </div>
+        
+             <!-- new cursor -->
+             <div class="cursor-dot w-1 h-1 bg-customPrimary rounded-2xl absolute transform -translate-x-50 -translate-y-50 pointer-events-none ease-out duration-75 dark:bg-customSecondary " ></div>
+
+             <div class="cursor-outline w-6 h-6 border border-customPrimary rounded-2xl absolute  transform -translate-x-50 -translate-y-50 pointer-events-none ease-out duration-150 dark:border-customSecondary"></div>
+</footer>
+</body>
+<script src="script.js"></script>
+</html>
+
+
+
+
+
