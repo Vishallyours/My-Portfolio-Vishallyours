@@ -27,6 +27,9 @@ module.exports = {
       translate:{
         '50': '50%',
       },
+      scrollbar: {
+        hide: '::-webkit-scrollbar { display: none; }',
+      },
       borderRadius:{
         '10p':'10%',
         '20p':'20%',
@@ -36,7 +39,20 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [ function ({ addUtilities }) {
+    addUtilities({
+      '.scrollbar-hide': {
+        /* Hide scrollbar for webkit browsers (Chrome, Safari) */
+        '-webkit-overflow-scrolling': 'touch',
+        '-ms-overflow-style': 'none', /* IE and Edge */
+        'scrollbar-width': 'none', /* Firefox */
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+      },
+    });
+  },
+],
 }
 
     

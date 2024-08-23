@@ -9,41 +9,35 @@ function scaleCursor(scale) {
   mouseCursor.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 
-function addCursorEffects(selector, hoverScale, clickScale) {
+function addCursorEffects(selector, hoverScale) {
   const elements = document.querySelectorAll(selector);
 
   elements.forEach(element => {
     element.addEventListener('mouseover', () => {
       scaleCursor(hoverScale);
       mouseCursor.classList.add("cursorAnim");
+      element.classList.add('hoverColor');
       mouseCursorInner.classList.add('hidden-cursor');
     });
-
+    
     element.addEventListener('mouseleave', () => {
       scaleCursor(1);
       mouseCursor.classList.remove("cursorAnim");
+     element.classList.remove('hoverColor');
       mouseCursorInner.classList.remove('hidden-cursor');
-    });
-
-    element.addEventListener('click', (e) => {
-      e.stopPropagation();
-      scaleCursor(clickScale);
-      setTimeout(() => {
-        scaleCursor(hoverScale);
-      }, 200);
     });
   });
 }
 
-addCursorEffects('.navlinks div, .navlinks li, .navlinks li img, .underline-animation, .sun, .moon', 2, 4);
+addCursorEffects('.navlinks div, .navlinks li, .navlinks li img, .underline-animation, .sun, .moon, .menu li a', 2,);
 
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.navlinks div, .navlinks li, .navlinks li img, .underline-animation, .sun, .moon')) {
+  if (!e.target.closest('.navlinks div, .navlinks li, .navlinks li img, .underline-animation, .sun, .moon, .menu li a')) {
     scaleCursor(2);
     setTimeout(() => {
       scaleCursor(1);
     }, 200);
-  }
+  } 
 });
 
 window.addEventListener('mousemove', (e) => {
@@ -93,23 +87,40 @@ const themeCheck = () => {
   }
 };
 
-const themeSwitchANDScale4x = () => {
+const themeSwitch = (e) => {
+  e.stopPropagation();
   const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
   const newTheme = currentTheme === "dark" ? "light" : "dark";
   applyTheme(newTheme);
   localStorage.setItem("theme", newTheme);
-
-  // Scale the cursor to 4x then back to 2x
-  scaleCursor(4);
-  setTimeout(() => {
-    scaleCursor(2);
-  }, 200);
 };
 
 [sunIcon, moonIcon].forEach(icon => {
-  icon.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
+  icon.addEventListener('click', themeSwitch);
 });
-
 themeCheck();
+
+// box animation rotation menupage
+const listItems = document.querySelectorAll('#Menu li');
+
+listItems.forEach(item => {
+  const anchorElement = item.querySelector('a'); 
+  const svgElement = item.querySelector('svg');
+
+    anchorElement.addEventListener('mouseenter', () => {
+        gsap.to(svgElement, { rotation: 180+45,
+                              duration: 1, 
+                              transformOrigin: '50% 50%', 
+                              ease:"power1.inout",
+                               scale: 1.5
+         });
+    });
+
+    anchorElement.addEventListener('mouseleave', () => {
+        gsap.to(svgElement, { rotation: 0,
+                              duration: 1,
+                              transformOrigin: '50% ,50%',
+                              ease:"power1.inout",
+                              scale: 1,
+}); });
+});

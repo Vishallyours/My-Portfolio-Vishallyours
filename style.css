@@ -24,23 +24,20 @@
       .cursorAnim {
         background-color: #06141bb0;
         border: #06141b20;
+        transition: transform 0.2s ease;
+        z-index: -1;
       }
+      
       .dark .cursorAnim{
         background-color: #ccd0cfc0;
         border: #ccd0cfc0;
       }
-   
+      
      .hidden-cursor{
         display: none;
     } 
-    
-    .cursor-scale-4x {
-      transform: translate(-50%, -50%) scale(2) !important;
-      background-color: #06141bb0;
-      border: #06141b20;
-    }
-    .dark .cursor-scale-4x {
-      background-color: #ccd0cfc0;
-      border: #ccd0cfc0;
-    }
- 
+
+    @keyframes cursorAnim {
+      from { transform: scale(1); }
+      to { transform: scale(2); }
+  }

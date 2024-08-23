@@ -708,12 +708,28 @@ animate-cursorAnim {
   inset-inline-end: 0.25rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .isolate {
   isolation: isolate;
 }
 
 .isolation-auto {
   isolation: auto;
+}
+
+.-z-10 {
+  z-index: -10;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .float-start {
@@ -760,6 +776,10 @@ animate-cursorAnim {
   clear: none;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .m-20 {
   margin: 5rem;
 }
@@ -767,6 +787,14 @@ animate-cursorAnim {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.ml-12 {
+  margin-left: 3rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
 }
 
 .mt-16 {
@@ -896,8 +924,12 @@ animate-cursorAnim {
   height: 2rem;
 }
 
-.h-dvh {
-  height: 100dvh;
+.h-lvh {
+  height: 100lvh;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-1 {
@@ -2046,8 +2078,16 @@ animate-cursorAnim {
      object-fit: scale-down;
 }
 
+.p-0 {
+  padding: 0px;
+}
+
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-52 {
+  padding: 13rem;
 }
 
 .text-left {
@@ -2114,6 +2154,11 @@ animate-cursorAnim {
 
 .text-5xl {
   font-size: 3rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
   line-height: 1;
 }
 
@@ -2512,12 +2557,12 @@ animate-cursorAnim {
   transition-duration: 150ms;
 }
 
-.duration-150 {
-  transition-duration: 150ms;
+.duration-100 {
+  transition-duration: 100ms;
 }
 
-.duration-75 {
-  transition-duration: 75ms;
+.duration-150 {
+  transition-duration: 150ms;
 }
 
 .ease-in {
@@ -2582,9 +2627,21 @@ animate-cursorAnim {
   forced-color-adjust: none;
 }
 
+.scrollbar-hide {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .cursorAnim {
   background-color: #06141bb0;
   border: #06141b20;
+  transition: transform 0.2s ease;
+  z-index: -1;
 }
 
 .dark .cursorAnim{
@@ -2596,15 +2653,14 @@ animate-cursorAnim {
   display: none;
 }
 
-.cursor-scale-4x {
-  transform: translate(-50%, -50%) scale(2) !important;
-  background-color: #06141bb0;
-  border: #06141b20;
-}
+@keyframes cursorAnim {
+  from {
+    transform: scale(1);
+  }
 
-.dark .cursor-scale-4x {
-  background-color: #ccd0cfc0;
-  border: #ccd0cfc0;
+  to {
+    transform: scale(2);
+  }
 }
 
 @media (min-width: 640px) {
@@ -2740,4 +2796,3 @@ animate-cursorAnim {
     paint-order: markers;
   }
 }
- 
