@@ -1,5 +1,5 @@
 function openPDF() {
-  window.open('/material/Vishal sain 2024.pdf', '_blank');
+  window.open('/material/Vishal Sain Resume.pdf', '_blank');
 }
 
 const mouseCursor = document.querySelector(".cursor-outline");
